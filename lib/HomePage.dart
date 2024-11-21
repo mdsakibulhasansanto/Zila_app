@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ShowActivity/JounraList.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -41,13 +42,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(40, 108, 180, 1),
+        //backgroundColor: const Color.fromRGBO(40, 108, 180, 1),
         title: const Text(
           'District online service',
           style: TextStyle(
-            color: Colors.black,
+           // color: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -342,7 +343,7 @@ class HomePage extends StatelessWidget {
             },
             icon: const Icon(
               Icons.add,
-              color: Colors.black,
+             // color: Colors.black,
             ),
             padding: const EdgeInsets.only(right: 10),
           ),
@@ -361,19 +362,24 @@ class HomePage extends StatelessWidget {
             childAspectRatio: 3 / 2,
           ),
           itemCount: list.length,
-          // list-এর আকারের সাথে মিলিয়ে itemCount সেট করা
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
                 switch (index) {
                   case 0:
                     MySnackBar(context, list[index]['Name']);
+
+
                     break;
                   case 1:
                     MySnackBar(context, list[index]['Name']);
                     break;
                   case 2:
                     MySnackBar(context, list[index]['Name']);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => JournaList())
+                    );
                     break;
                   case 3:
                     MySnackBar(context, list[index]['Name']);
@@ -449,7 +455,8 @@ class HomePage extends StatelessWidget {
               child: Card(
                 margin: const EdgeInsets.only(
                     left: 25, right: 25, top: 10, bottom: 10),
-                color: const Color.fromRGBO(242, 244, 244, 1),
+               // color: const Color.fromRGBO(242, 244, 244, 1),
+               // color: Colors.white,
                 elevation: 10,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -485,7 +492,7 @@ class HomePage extends StatelessWidget {
                         Text(
                           list[index]['Name']!, 
                           style: const TextStyle(
-                            color: Colors.black,
+                           // color: Colors.black,
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
                           ),
@@ -500,7 +507,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
         currentIndex: 0,
         selectedItemColor: const Color.fromRGBO(40, 108, 180, 1),
         unselectedItemColor: Colors.grey,
@@ -518,11 +525,11 @@ class HomePage extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(Icons.settings), label: 'Settings'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.supervised_user_circle), label: 'Profile')
+              icon: Icon(Icons.supervised_user_circle), label: 'Profile'),
         ],
       ),
       drawer: Drawer(
-        backgroundColor: Colors.white,
+       // backgroundColor: Colors.white,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -579,7 +586,7 @@ class HomePage extends StatelessWidget {
               title: const Text(
                 'Home',
                 style: TextStyle(
-                    color: Colors.black,
+                    //color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
@@ -598,7 +605,7 @@ class HomePage extends StatelessWidget {
               title: const Text(
                 'Settings',
                 style: TextStyle(
-                    color: Colors.black,
+                  //  color: Colors.black,
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
@@ -617,7 +624,7 @@ class HomePage extends StatelessWidget {
               title: const Text(
                 'Developer contact Us',
                 style: TextStyle(
-                    color: Colors.black,
+                   // color: Colors.black,
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
               ),
